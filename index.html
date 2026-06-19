@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="首爾行程">
+<title>首爾家庭旅遊 2025</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;color:#1a1a1a;max-width:480px;margin:0 auto}
+.header{background:#fff;border-bottom:1px solid #eee;padding:16px;position:sticky;top:0;z-index:10}
+.trip-title{font-size:18px;font-weight:600}
+.trip-sub{font-size:13px;color:#888;margin-top:2px}
+.section{padding:12px 16px 0}
+.section-label{font-size:11px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.card{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.hotel-name{font-size:16px;font-weight:600}
+.hotel-addr{font-size:12px;color:#888;margin-top:4px;line-height:1.6}
+.nav-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.nav-btn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:7px 13px;border-radius:20px;border:1px solid #e0e0e0;color:#333;text-decoration:none;background:#fafafa}
+.nav-btn svg{width:14px;height:14px;flex-shrink:0}
+.tabs{display:flex;gap:6px;padding:12px 16px;overflow-x:auto;scrollbar-width:none;background:#f5f5f5;position:sticky;top:65px;z-index:9}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:7px 16px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;background:#fff;color:#888;border:1px solid #e8e8e8;transition:all .2s}
+.tab.active{background:#222;color:#fff;border-color:#222}
+.day-panel{display:none;padding:4px 16px 80px}
+.day-panel.show{display:block}
+.day-header{font-size:13px;font-weight:600;color:#888;padding:12px 0 8px}
+.spot-card{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.spot-name{font-size:15px;font-weight:600}
+.spot-desc{font-size:13px;color:#666;margin-top:5px;line-height:1.6}
+.spot-time{font-size:11px;color:#aaa;margin-top:5px;display:flex;align-items:center;gap:4px}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;margin-top:7px;background:#e8f5e9;color:#388e3c}
+.badge.blue{background:#e3f2fd;color:#1565c0}
+.tip-card{background:#fffde7;border-radius:14px;padding:14px 16px;margin:4px 16px 12px}
+.tip-title{font-size:13px;font-weight:600;color:#f57f17;margin-bottom:8px}
+.tip-item{font-size:12px;color:#795548;line-height:2}
+@media(prefers-color-scheme:dark){
+  body{background:#111;color:#f0f0f0}
+  .header,.card,.spot-card{background:#1e1e1e;border-color:#333}
+  .tabs{background:#111}
+  .tab{background:#1e1e1e;color:#888;border-color:#333}
+  .tab.active{background:#f0f0f0;color:#111}
+  .nav-btn{background:#1e1e1e;border-color:#333;color:#ccc}
+  .spot-desc{color:#aaa}
+  .tip-card{background:#2a2200}
+  .tip-title{color:#ffd54f}
+  .tip-item{color:#bcaaa4}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="trip-title">✈️ 首爾家庭旅遊</div>
+  <div class="trip-sub">7月11日 – 7月15日 &nbsp;·&nbsp; 4大3小</div>
+</div>
+
+<div class="section">
+  <div class="section-label">住宿飯店</div>
+  <div class="card">
+    <div class="hotel-name">Complace D</div>
+    <div class="hotel-addr">16-5, Yanghwa-ro 23-gil, Mapo-gu<br>麻浦區 首爾 韓國 03985</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Complace+D+Yanghwa-ro+23-gil+Mapo-gu+Seoul" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Google Maps
+      </a>
+      <a class="nav-btn" href="https://map.kakao.com/link/search/Complace D 마포구" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Kakao Map
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" onclick="switchDay(0)">7/11 抵達</div>
+  <div class="tab" onclick="switchDay(1)">7/12 樂天</div>
+  <div class="tab" onclick="switchDay(2)">7/13 漢江</div>
+  <div class="tab" onclick="switchDay(3)">7/14 文化</div>
+  <div class="tab" onclick="switchDay(4)">7/15 返程</div>
+</div>
+
+<div class="day-panel show" id="d0">
+  <div class="day-header">第一天 · 7月11日（五）</div>
+  <div class="spot-card">
+    <div class="spot-name">🛬 仁川國際機場抵達</div>
+    <div class="spot-desc">入境後搭機場快線（AREX）至弘大入口站，步行或搭計程車至飯店，約55分鐘。</div>
+    <div class="spot-time">🕐 依班機時間</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Incheon+International+Airport&destination=Complace+D+Yanghwa-ro+23-gil+Mapo-gu+Seoul&travelmode=transit" target="_blank">路線規劃</a>
+    </div>
+  </div>
+  <div class="spot-card">
+    <div class="spot-name">🏙️ 弘大商圈晚餐</div>
+    <div class="spot-desc">飯店步行可達，街頭表演、烤肉、炸雞，熱鬧適合全家。買 T-money 卡備用。</div>
+    <div class="spot-time">🕕 傍晚</div>
+    <div class="badge">親子友善</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=홍대+입구역+먹자골목" target="_blank">美食街地圖</a>
+    </div>
+  </div>
+</div>
+
+<div class="day-panel" id="d1">
+  <div class="day-header">第二天 · 7月12日（六）</div>
+  <div class="spot-card">
+    <div class="spot-name">🎢 樂天世界</div>
+    <div class="spot-desc">韓國最大室內+戶外主題樂園，小朋友最愛。建議開門前30分鐘到達，避開人潮。</div>
+    <div class="spot-time">🕘 09:30 – 21:00（建議全天）</div>
+    <div class="badge">⭐ 強烈推薦</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Seoul" target="_blank">地圖</a>
+      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Lotte+World+Seoul&travelmode=transit" target="_blank">路線</a>
+    </div>
+  </div>
+</div>
+
+<div class="day-panel" id="d2">
+  <div class="day-header">第三天 · 7月13日（日）</div>
+  <div class="spot-card">
+    <div class="spot-name">🌳 首爾兒童大公園</div>
+    <div class="spot-desc">免費動物園＋遊樂設施，看動物、玩設備，上午涼爽時最適合。</div>
+    <div class="spot-time">🕙 10:00 – 18:00</div>
+    <div class="badge">親子首選</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Seoul+Children's+Grand+Park" target="_blank">地圖</a>
+      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Seoul+Children's+Grand+Park&travelmode=transit" target="_blank">路線</a>
+    </div>
+  </div>
+  <div class="spot-card">
+    <div class="spot-name">🌊 望遠漢江公園</div>
+    <div class="spot-desc">飯店附近步行可達，租腳踏車、野餐、吃炸雞，傍晚涼風吹來很舒服。</div>
+    <div class="spot-time">🕔 下午</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=망원한강공원" target="_blank">地圖</a>
+    </div>
+  </div>
+</div>
+
+<div class="day-panel" id="d3">
+  <div class="day-header">第四天 · 7月14日（一）</div>
+  <div class="spot-card">
+    <div class="spot-name">🏯 景福宮</div>
+    <div class="spot-desc">穿韓服免費入場，體驗換裝拍照。建議早上9點前到避開熱氣與人潮。</div>
+    <div class="spot-time">🕘 09:00 – 18:00</div>
+    <div class="badge blue">文化體驗</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Gyeongbokgung+Palace+Seoul" target="_blank">地圖</a>
+      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Gyeongbokgung+Palace&travelmode=transit" target="_blank">路線</a>
+    </div>
+  </div>
+  <div class="spot-card">
+    <div class="spot-name">🛍️ 明洞</div>
+    <div class="spot-desc">下午購物掃貨、街頭小吃，雞蛋糕、魚板串小朋友超愛。化妝品伴手禮一次搞定。</div>
+    <div class="spot-time">🕑 下午</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Seoul" target="_blank">地圖</a>
+      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Gyeongbokgung+Palace&destination=Myeongdong+Seoul&travelmode=transit" target="_blank">路線</a>
+    </div>
+  </div>
+</div>
+
+<div class="day-panel" id="d4">
+  <div class="day-header">第五天 · 7月15日（二）返程</div>
+  <div class="spot-card">
+    <div class="spot-name">🛒 退房採購</div>
+    <div class="spot-desc">弘大或望遠市場買伴手禮，海苔、零食、化妝品為熱門選擇。</div>
+    <div class="spot-time">🕘 上午（依班機）</div>
+  </div>
+  <div class="spot-card">
+    <div class="spot-name">✈️ 返回仁川機場</div>
+    <div class="spot-desc">從弘大入口站搭 AREX 直達機場，約55分鐘。班機前3小時出發。</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Incheon+International+Airport&travelmode=transit" target="_blank">路線規劃</a>
+    </div>
+  </div>
+</div>
+
+<div class="tip-card">
+  <div class="tip-title">📌 必知事項</div>
+  <div class="tip-item">· T-money卡：機場或便利商店購買，地鐵公車通用</div>
+  <div class="tip-item">· 計程車：Kakao T app 叫車最方便</div>
+  <div class="tip-item">· 緊急電話：警察 112 · 救護 119</div>
+  <div class="tip-item">· 7月天氣：28–33°C 潮濕，帶薄外套備冷氣房</div>
+  <div class="tip-item">· 退稅：買滿₩30,000 可在機場退稅</div>
+</div>
+
+<script>
+function switchDay(i){
+  document.querySelectorAll('.tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+  document.querySelectorAll('.day-panel').forEach((p,idx)=>p.classList.toggle('show',idx===i));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
