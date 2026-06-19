@@ -27,7 +27,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .day-panel.show{display:block}
 .day-header{font-size:13px;font-weight:600;color:#888;padding:12px 0 4px}
 .block-label{font-size:11px;font-weight:700;color:#aaa;letter-spacing:.05em;margin:14px 0 6px;text-transform:uppercase}
-.spot-card{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.spot-card{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:4px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .spot-card.food{border-left:3px solid #ff7043}
 .spot-card.shop{border-left:3px solid #7c4dff}
 .spot-card.alt{border-left:3px solid #26a69a}
@@ -39,10 +39,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .badge.orange{background:#fff3e0;color:#e65100}
 .badge.purple{background:#ede7f6;color:#6a1b9a}
 .badge.red{background:#fce4ec;color:#c62828}
+.transport{background:#f0f4ff;border-radius:10px;padding:10px 14px;margin:4px 0;display:flex;flex-direction:column;gap:6px}
+.t-label{font-size:10px;font-weight:700;color:#7986cb;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.t-row{display:flex;align-items:center;gap:8px}
+.t-icon{font-size:14px;flex-shrink:0;width:22px;text-align:center}
+.t-detail{flex:1;font-size:12px;color:#444;line-height:1.4}
+.t-price{font-size:12px;font-weight:600;color:#3949ab;white-space:nowrap}
+.t-walk{background:#f1f8e9;border-radius:10px;padding:8px 14px;margin:4px 0;font-size:12px;color:#558b2f;display:flex;align-items:center;gap:6px}
 .tip-card{background:#fffde7;border-radius:14px;padding:14px 16px;margin:4px 16px 12px}
 .tip-title{font-size:13px;font-weight:600;color:#f57f17;margin-bottom:8px}
 .tip-item{font-size:12px;color:#795548;line-height:2}
-.legend{display:flex;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.legend{display:flex;gap:10px;padding:8px 16px;flex-wrap:wrap}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:#888}
 .leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
 @media(prefers-color-scheme:dark){
@@ -56,7 +63,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   .tip-card{background:#2a2200}
   .tip-title{color:#ffd54f}
   .tip-item{color:#bcaaa4}
-  .block-label{color:#666}
+  .transport{background:#1a1f3a}
+  .t-label{color:#7986cb}
+  .t-detail{color:#bbb}
+  .t-price{color:#7986cb}
+  .t-walk{background:#1a2a10;color:#8bc34a}
+  .block-label{color:#555}
 }
 </style>
 </head>
@@ -82,7 +94,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="legend">
   <div class="leg"><div class="leg-dot" style="background:#ff7043"></div>餐廳</div>
   <div class="leg"><div class="leg-dot" style="background:#7c4dff"></div>購物</div>
-  <div class="leg"><div class="leg-dot" style="background:#26a69a"></div>備選景點</div>
+  <div class="leg"><div class="leg-dot" style="background:#26a69a"></div>備選</div>
+  <div class="leg"><div class="leg-dot" style="background:#7986cb;border-radius:50%"></div>交通</div>
 </div>
 
 <div class="tabs">
@@ -97,17 +110,55 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="day-panel show" id="d0">
   <div class="day-header">第一天 · 7月11日（五）抵達日</div>
 
-  <div class="block-label">🛬 上午 — 抵達</div>
   <div class="spot-card">
     <div class="spot-name">🛬 仁川國際機場</div>
-    <div class="spot-desc">早上7點出發，約11點抵達。搭機場快線 AREX 至弘大入口站（約55分），先到飯店寄放行李。</div>
+    <div class="spot-desc">早上7點出發，約11點抵達。入境後先購買 T-money 卡（入境大廳便利商店）。</div>
     <div class="spot-time">🕙 約11:00</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Incheon+International+Airport&destination=Complace+D+Mapo-gu+Seoul&travelmode=transit" target="_blank">路線規劃</a>
+  </div>
+
+  <div class="transport">
+    <div class="t-label">✈️ 機場 → 飯店</div>
+    <div class="t-row">
+      <span class="t-icon">🚆</span>
+      <span class="t-detail">AREX 直通 → 弘大入口站，步行或計程車5分至飯店<br>約55分鐘</span>
+      <span class="t-price">₩9,500</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚆</span>
+      <span class="t-detail">AREX 一般（停各站）→ 弘大入口站<br>約70分鐘</span>
+      <span class="t-price">₩4,150</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車（一般）約60分，7人行李建議叫콜밴</span>
+      <span class="t-price">~₩80,000</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚐</span>
+      <span class="t-detail">콜밴（廂型計程車，7人座含行李）</span>
+      <span class="t-price">~₩120,000</span>
     </div>
   </div>
 
-  <div class="block-label">🌅 午間 — Check-in 前（選一）</div>
+  <div class="spot-card">
+    <div class="spot-name">🏨 飯店 — 寄放行李</div>
+    <div class="spot-desc">Check-in 約15:00，先寄放行李再出發。</div>
+  </div>
+
+  <div class="transport">
+    <div class="t-label">飯店 → Dragon Hill Spa</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 2 홍대입구 → 합정 → Line 6 → 삼각지站，步行5分<br>約20分鐘</span>
+      <span class="t-price">₩1,400</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約10分鐘</span>
+      <span class="t-price">~₩9,000</span>
+    </div>
+  </div>
+
   <div class="spot-card">
     <div class="spot-name">♨️ Dragon Hill Spa（龍丘浴場）</div>
     <div class="spot-desc">首爾最大汗蒸幕，24小時。洗澡換衣、休息吃飯，有兒童區，消除早班機疲勞最佳選擇。</div>
@@ -115,46 +166,42 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="badge">強烈推薦</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Dragon+Hill+Spa+Seoul" target="_blank">📍 地圖</a>
-      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Dragon+Hill+Spa+Yongsan+Seoul&travelmode=transit" target="_blank">路線</a>
     </div>
   </div>
   <div class="spot-card alt">
-    <div class="spot-name">🌊 望遠漢江公園</div>
-    <div class="spot-desc">不想花錢也不想移動，步行即達。便利商店買早午餐野餐，小朋友在草地跑跑。</div>
-    <div class="spot-time">🕛 12:00 – 14:00</div>
+    <div class="spot-name">🌊 備選：望遠漢江公園</div>
+    <div class="spot-desc">不想移動，步行即達。便利商店買早午餐，草地野餐休息。</div>
     <div class="badge">備選 · 免費</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=망원한강공원" target="_blank">📍 地圖</a>
     </div>
   </div>
 
-  <div class="block-label">🍽 午餐推薦</div>
-  <div class="spot-card food">
-    <div class="spot-name">🥩 홍대 고기집（弘大烤肉街）</div>
-    <div class="spot-desc">弘大周邊烤肉聚集，三層肉、牛腸為主，份量大、氣氛熱鬧，第一餐就到位。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=홍대+고기집" target="_blank">📍 地圖</a>
+  <div class="transport">
+    <div class="t-label">Dragon Hill Spa → 飯店</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">同回程，Line 6 삼각지 → 합정 → Line 2 홍대입구<br>約20分鐘</span>
+      <span class="t-price">₩1,400</span>
     </div>
-  </div>
-  <div class="spot-card food">
-    <div class="spot-name">🍜 연남장（延南場）</div>
-    <div class="spot-desc">弘大旁延南洞，韓式家常料理，環境舒適，推薦豬腳、冷麵，適合帶小朋友。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=연남장+연남동" target="_blank">📍 地圖</a>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約10分鐘</span>
+      <span class="t-price">~₩9,000</span>
     </div>
   </div>
 
-  <div class="block-label">🏨 下午</div>
   <div class="spot-card">
     <div class="spot-name">🏨 飯店 Check-in</div>
-    <div class="spot-desc">約15:00返回辦理入住，稍作休息後出門晚餐。</div>
+    <div class="spot-desc">辦理入住，稍作休息後出門晚餐。</div>
     <div class="spot-time">🕒 15:00</div>
   </div>
 
-  <div class="block-label">🌆 傍晚 — 弘大</div>
+  <div class="t-walk">🚶 步行約5分鐘 → 弘大商圈</div>
+
   <div class="spot-card">
-    <div class="spot-name">🏙️ 弘大商圈</div>
-    <div class="spot-desc">步行可達，街頭表演、小吃攤，雞蛋糕、魚板串、炸物。順便在便利商店買 T-money 卡。</div>
+    <div class="spot-name">🏙️ 弘大商圈晚餐</div>
+    <div class="spot-desc">街頭表演、小吃攤，雞蛋糕、魚板串、炸物。T-money 卡可在便利商店加值。</div>
     <div class="spot-time">🕕 17:30 起</div>
     <div class="badge">親子友善</div>
     <div class="nav-row">
@@ -162,10 +209,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
   <div class="spot-card food">
-    <div class="spot-name">🍗 晚餐：弘大炸雞＋啤酒</div>
-    <div class="spot-desc">韓國必吃體驗，推薦교촌치킨（橋村炸雞）或 BBQ，炸雞配啤酒或汽水，小朋友愛。</div>
+    <div class="spot-name">🍗 晚餐推薦：橋村炸雞（교촌치킨）</div>
+    <div class="spot-desc">韓國人氣炸雞品牌，蜂蜜辣、原味都好吃，小朋友最愛，弘大附近多家。</div>
     <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=교촌치킨+홍대" target="_blank">📍 橋村炸雞</a>
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=교촌치킨+홍대" target="_blank">📍 地圖</a>
     </div>
   </div>
 </div>
@@ -174,42 +221,71 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="day-panel" id="d1">
   <div class="day-header">第二天 · 7月12日（六）樂天世界</div>
 
-  <div class="block-label">🎢 全天主場</div>
+  <div class="spot-card">
+    <div class="spot-name">🏨 飯店出發</div>
+    <div class="spot-time">🕘 建議 09:00 出發</div>
+  </div>
+
+  <div class="transport">
+    <div class="t-label">飯店 → 樂天世界</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 2 홍대입구 → 잠실駅（直達，不用換車）<br>約40分鐘</span>
+      <span class="t-price">₩1,600</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約30分鐘</span>
+      <span class="t-price">~₩28,000</span>
+    </div>
+  </div>
+
   <div class="spot-card">
     <div class="spot-name">🎢 樂天世界</div>
-    <div class="spot-desc">韓國最大室內+戶外主題樂園，小朋友最愛。建議開門前30分鐘排隊，先玩熱門設施。</div>
+    <div class="spot-desc">韓國最大室內+戶外主題樂園。建議開門前30分鐘排隊，先玩熱門設施再慢慢逛。</div>
     <div class="spot-time">🕘 09:30 – 18:00</div>
     <div class="badge">⭐ 強烈推薦</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Seoul" target="_blank">📍 地圖</a>
-      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Lotte+World+Seoul&travelmode=transit" target="_blank">路線</a>
     </div>
   </div>
-
-  <div class="block-label">🔄 備選（不愛樂園可替換）</div>
   <div class="spot-card alt">
-    <div class="spot-name">🐠 樂天世界水族館</div>
-    <div class="spot-desc">就在樂天世界地下，韓國最大室內水族館，小朋友看魚超開心，不用日曬。</div>
+    <div class="spot-name">🐠 備選：樂天世界水族館</div>
+    <div class="spot-desc">就在樂天世界地下，韓國最大室內水族館，不用日曬，小朋友看魚超開心。</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Aquarium+Seoul" target="_blank">📍 地圖</a>
     </div>
   </div>
+
+  <div class="spot-card food">
+    <div class="spot-name">🍱 午餐：樂天世界 Mall 美食廣場</div>
+    <div class="spot-desc">樂天世界 Mall 地下，韓食、日式、速食都有，小朋友選擇多，不用離開園區。</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=롯데월드몰+푸드코트" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="t-walk">🚶 步行3分鐘 → 樂天世界 Mall（購物）</div>
+
+  <div class="spot-card shop">
+    <div class="spot-name">🛍️ 樂天世界 Mall</div>
+    <div class="spot-desc">韓國最大百貨之一，玩累後吹冷氣逛，品牌、零食、化妝品齊全。</div>
+    <div class="badge purple">購物推薦</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Mall+Seoul" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="t-walk">🚶 步行5分鐘 → 石村湖水公園</div>
+
   <div class="spot-card alt">
-    <div class="spot-name">🌸 石村湖水公園</div>
-    <div class="spot-desc">樂天世界旁的免費湖景公園，傍晚散步、拍照，咖啡廳林立，適合休息。</div>
+    <div class="spot-name">🌸 備選：石村湖水公園</div>
+    <div class="spot-desc">免費湖景公園，傍晚散步、拍照，咖啡廳林立，適合最後休息。</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=석촌호수+공원" target="_blank">📍 地圖</a>
     </div>
   </div>
 
-  <div class="block-label">🍽 餐廳推薦</div>
-  <div class="spot-card food">
-    <div class="spot-name">🍱 午餐：樂天世界 Mall 美食街</div>
-    <div class="spot-desc">樂天世界 Mall 地下美食廣場，韓食、日式、速食都有，小朋友選擇多。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=롯데월드몰+푸드코트" target="_blank">📍 地圖</a>
-    </div>
-  </div>
   <div class="spot-card food">
     <div class="spot-name">🥩 晚餐：蠶室烤肉街</div>
     <div class="spot-desc">樂天世界附近蠶室站周邊，烤肉餐廳聚集，結束一天後大快朵頤。</div>
@@ -218,13 +294,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 
-  <div class="block-label">🛍 購物</div>
-  <div class="spot-card shop">
-    <div class="spot-name">🛍️ 樂天世界 Mall</div>
-    <div class="spot-desc">韓國最大百貨之一，就在樂天世界旁，玩累了直接進去吹冷氣逛，品牌齊全。</div>
-    <div class="badge purple">購物推薦</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Mall+Seoul" target="_blank">📍 地圖</a>
+  <div class="transport">
+    <div class="t-label">樂天世界 → 飯店</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 2 잠실 → 홍대입구（直達）<br>約40分鐘</span>
+      <span class="t-price">₩1,600</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約30分鐘</span>
+      <span class="t-price">~₩28,000</span>
     </div>
   </div>
 </div>
@@ -233,65 +313,92 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="day-panel" id="d2">
   <div class="day-header">第三天 · 7月13日（日）漢江＆市場</div>
 
-  <div class="block-label">🌅 上午（選一）</div>
+  <div class="spot-card">
+    <div class="spot-name">🏨 飯店出發</div>
+    <div class="spot-time">🕘 09:30 出發</div>
+  </div>
+
+  <div class="block-label">上午（選一）</div>
+
+  <div class="transport">
+    <div class="t-label">飯店 → 首爾兒童大公園</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 2 홍대입구 → 어린이대공원駅（直達）<br>約30分鐘</span>
+      <span class="t-price">₩1,500</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約25分鐘</span>
+      <span class="t-price">~₩20,000</span>
+    </div>
+  </div>
+
   <div class="spot-card">
     <div class="spot-name">🌳 首爾兒童大公園</div>
-    <div class="spot-desc">免費動物園＋遊樂設施，看動物、玩設備。上午涼爽時最適合，避開下午酷熱。</div>
+    <div class="spot-desc">免費動物園＋遊樂設施，上午涼爽時最適合，避開下午酷熱。</div>
     <div class="spot-time">🕙 10:00 – 13:00</div>
     <div class="badge">親子首選</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Seoul+Children's+Grand+Park" target="_blank">📍 地圖</a>
-      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Seoul+Children's+Grand+Park&travelmode=transit" target="_blank">路線</a>
     </div>
   </div>
+
+  <div class="transport">
+    <div class="t-label">兒童大公園 → 望遠漢江公園</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 2 어린이대공원 → 홍대입구，步行15분至漢江<br>約35分鐘</span>
+      <span class="t-price">₩1,500</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約20分鐘</span>
+      <span class="t-price">~₩16,000</span>
+    </div>
+  </div>
+
   <div class="spot-card alt">
-    <div class="spot-name">🛍️ 望遠市場（早市）</div>
-    <div class="spot-desc">飯店步行10分鐘，韓國傳統市場，零食、小吃、生活雜貨，價格超實惠，逛市場體驗道地生活。</div>
-    <div class="spot-time">🕘 09:00 – 12:00</div>
+    <div class="spot-name">🛍️ 備選上午：望遠市場</div>
+    <div class="spot-desc">不想遠出，步行10分鐘到傳統市場，零食、小吃、生活雜貨，體驗道地韓式生活。</div>
+    <div class="spot-time">🕘 09:30 – 12:00</div>
     <div class="badge purple">備選 · 購物</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=망원시장" target="_blank">📍 地圖</a>
     </div>
   </div>
-
-  <div class="block-label">🍽 午餐推薦</div>
   <div class="spot-card food">
     <div class="spot-name">🥘 午餐：望遠市場街頭小吃</div>
-    <div class="spot-desc">市場內有各式韓式小吃，麻藥飯糰、血腸、煎餅、炒年糕，便宜又好吃，小朋友最愛掃攤。</div>
+    <div class="spot-desc">麻藥飯糰、血腸、煎餅、炒年糕，便宜又好吃，小朋友最愛掃攤。</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=망원시장+먹거리" target="_blank">📍 地圖</a>
     </div>
   </div>
 
-  <div class="block-label">🌊 下午 — 漢江</div>
+  <div class="t-walk">🚶 步行15分鐘 → 望遠漢江公園</div>
+
   <div class="spot-card">
     <div class="spot-name">🌊 望遠漢江公園</div>
-    <div class="spot-desc">飯店步行可達，租腳踏車、草地野餐。漢江最招牌體驗：叫外送炸雞邊吹風邊吃！</div>
-    <div class="spot-time">🕒 15:00 – 18:00</div>
+    <div class="spot-desc">租腳踏車、草地野餐。最招牌體驗：叫外送炸雞邊吹風邊吃！</div>
+    <div class="spot-time">🕒 14:00 – 18:00</div>
     <div class="badge orange">必體驗</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=망원한강공원" target="_blank">📍 地圖</a>
     </div>
   </div>
-  <div class="spot-card alt">
-    <div class="spot-name">☕ 合井咖啡街</div>
-    <div class="spot-desc">飯店附近合井站周邊，個性咖啡廳聚集，帶小朋友喝飲料、蛋糕，傍晚散步氣氛很好。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=합정+카페거리" target="_blank">📍 地圖</a>
-    </div>
-  </div>
-
-  <div class="block-label">🍽 晚餐推薦</div>
   <div class="spot-card food">
-    <div class="spot-name">🍗 漢江炸雞外送（必體驗）</div>
-    <div class="spot-desc">在漢江公園用 Baemin app 叫外送炸雞，邊看夕陽邊吃，是首爾最經典的日常體驗之一。</div>
+    <div class="spot-name">🍗 漢江炸雞外送（필수！）</div>
+    <div class="spot-desc">用 Baemin app 叫炸雞，邊看漢江夕陽邊吃，首爾最經典日常體驗。</div>
     <div class="badge red">首爾必做</div>
   </div>
-  <div class="spot-card food">
-    <div class="spot-name">🥩 晚餐備選：합정 맛집（合井美食）</div>
-    <div class="spot-desc">不想叫外送的話，合井站附近餐廳選擇多，韓式家常、豆腐鍋、部隊鍋都有。</div>
+
+  <div class="t-walk">🚶 步行15分鐘 → 飯店（或合井咖啡街）</div>
+
+  <div class="spot-card alt">
+    <div class="spot-name">☕ 備選傍晚：合井咖啡街</div>
+    <div class="spot-desc">飯店附近합정역周邊，個性咖啡廳聚集，甜點飲料散步。</div>
     <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=합정역+맛집" target="_blank">📍 地圖</a>
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=합정+카페거리" target="_blank">📍 地圖</a>
     </div>
   </div>
 </div>
@@ -300,69 +407,116 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="day-panel" id="d3">
   <div class="day-header">第四天 · 7月14日（一）文化＆購物</div>
 
-  <div class="block-label">🏯 上午 — 景福宮</div>
+  <div class="spot-card">
+    <div class="spot-name">🏨 飯店出發</div>
+    <div class="spot-time">🕗 08:30 出發（避開景福宮人潮）</div>
+  </div>
+
+  <div class="transport">
+    <div class="t-label">飯店 → 景福宮</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 2 홍대입구 → 을지로3가 → Line 3 → 경복궁駅<br>約30分鐘</span>
+      <span class="t-price">₩1,400</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約20分鐘</span>
+      <span class="t-price">~₩14,000</span>
+    </div>
+  </div>
+
   <div class="spot-card">
     <div class="spot-name">🏯 景福宮</div>
-    <div class="spot-desc">穿韓服免費入場，可在宮門前換裝拍照。建議9點前到避開熱氣，搭地鐵3號線景福宮站。</div>
+    <div class="spot-desc">穿韓服免費入場。9點前到避開熱氣與人潮，宮門前換裝拍照。</div>
     <div class="spot-time">🕘 09:00 – 11:30</div>
     <div class="badge blue">文化體驗</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Gyeongbokgung+Palace+Seoul" target="_blank">📍 地圖</a>
-      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Gyeongbokgung+Palace&travelmode=transit" target="_blank">路線</a>
     </div>
   </div>
+
+  <div class="t-walk">🚶 步行15分鐘 → 北村韓屋村 or 仁寺洞</div>
+
   <div class="spot-card alt">
-    <div class="spot-name">🏘️ 北村韓屋村</div>
-    <div class="spot-desc">景福宮步行可達，傳統韓屋巷弄，拍照超美，小朋友穿韓服走在裡面很有感。</div>
+    <div class="spot-name">🏘️ 備選：北村韓屋村</div>
+    <div class="spot-desc">景福宮步行可達，傳統韓屋巷弄，穿韓服在裡面拍照超美。</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Bukchon+Hanok+Village+Seoul" target="_blank">📍 地圖</a>
     </div>
   </div>
 
-  <div class="block-label">🍽 午餐推薦</div>
   <div class="spot-card food">
-    <div class="spot-name">🍜 仁寺洞傳統料理</div>
-    <div class="spot-desc">景福宮旁仁寺洞，推薦삼청동 수제비（手打麵）或傳統定食，份量足、有韓味。</div>
+    <div class="spot-name">🍜 午餐：仁寺洞傳統料理</div>
+    <div class="spot-desc">推薦삼청동 수제비（手打麵）或傳統定食，份量足、有韓味，附近餐廳選擇多。</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=인사동+한식당" target="_blank">📍 地圖</a>
     </div>
   </div>
 
-  <div class="block-label">🛍 下午 — 仁寺洞購物</div>
   <div class="spot-card shop">
     <div class="spot-name">🎎 仁寺洞</div>
-    <div class="spot-desc">傳統文化街，韓紙工藝品、茶葉、傳統糖果、韓服玩偶，最適合買有特色的伴手禮，小朋友也會喜歡。</div>
+    <div class="spot-desc">傳統文化街，韓紙工藝品、傳統糖果、韓服玩偶，最適合買有特色的伴手禮。</div>
     <div class="badge purple">伴手禮首選</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Insadong+Seoul" target="_blank">📍 地圖</a>
-      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Gyeongbokgung+Palace&destination=Insadong+Seoul&travelmode=transit" target="_blank">路線</a>
     </div>
   </div>
 
-  <div class="block-label">🛍 傍晚 — 明洞</div>
+  <div class="transport">
+    <div class="t-label">仁寺洞 → 明洞</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 3 안국 → 동대입구 → Line 4 → 명동駅<br>約15分鐘</span>
+      <span class="t-price">₩1,400</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約10分鐘</span>
+      <span class="t-price">~₩7,000</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚶</span>
+      <span class="t-detail">步行約20分鐘（天氣好可走）</span>
+      <span class="t-price">免費</span>
+    </div>
+  </div>
+
   <div class="spot-card shop">
     <div class="spot-name">🛍️ 明洞</div>
-    <div class="spot-desc">化妝品、服飾、街頭小吃一條街。雞蛋糕、魚板串、螃蟹爪小朋友超愛。藥妝店掃貨最方便。</div>
+    <div class="spot-desc">化妝品、服飾、街頭小吃。雞蛋糕、螃蟹爪小朋友超愛，藥妝店掃貨最方便。</div>
     <div class="badge purple">購物推薦</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Seoul" target="_blank">📍 地圖</a>
-      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Insadong+Seoul&destination=Myeongdong+Seoul&travelmode=transit" target="_blank">路線</a>
     </div>
   </div>
 
-  <div class="block-label">🍽 晚餐推薦</div>
   <div class="spot-card food">
-    <div class="spot-name">🍜 明洞餃子（명동교자）</div>
-    <div class="spot-desc">明洞最知名老店，刀削麵、餃子、韓式炸醬麵，平價好吃，排隊但翻桌快，小朋友很愛。</div>
+    <div class="spot-name">🍜 晚餐：明洞餃子（명동교자）</div>
+    <div class="spot-desc">明洞最知名老店，刀削麵、餃子平價好吃，排隊但翻桌快，小朋友很愛。</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=명동교자" target="_blank">📍 地圖</a>
     </div>
   </div>
   <div class="spot-card food">
     <div class="spot-name">🥘 晚餐備選：部隊鍋（부대찌개）</div>
-    <div class="spot-desc">韓國特色料理，香腸、泡麵、起司一鍋煮，小朋友超愛，明洞附近多家。</div>
+    <div class="spot-desc">香腸、泡麵、起司一鍋煮，小朋友超愛，明洞附近多家。</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=명동+부대찌개" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="transport">
+    <div class="t-label">明洞 → 飯店</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 4 명동 → 동대문역사문화공원 → Line 2 → 홍대입구<br>約30分鐘</span>
+      <span class="t-price">₩1,500</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約20分鐘</span>
+      <span class="t-price">~₩18,000</span>
     </div>
   </div>
 </div>
@@ -371,50 +525,66 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="day-panel" id="d4">
   <div class="day-header">第五天 · 7月15日（二）返程日</div>
 
-  <div class="block-label">🌅 上午 — 退房前購物</div>
+  <div class="spot-card food">
+    <div class="spot-name">☕ 早餐：弘大早午餐咖啡廳</div>
+    <div class="spot-desc">弘大步行可達，鬆餅、三明治、韓式粥，輕鬆舒適，最後一頓慢慢吃。</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=홍대+브런치카페" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="t-walk">🚶 步行5分鐘 → 弘大購物街 / 望遠市場</div>
+
   <div class="spot-card shop">
     <div class="spot-name">🛒 弘大購物街</div>
-    <div class="spot-desc">飯店旁步行可達，服飾、零食、化妝品，最後一波掃貨。超市買海苔、零食禮盒最划算。</div>
+    <div class="spot-desc">服飾、零食、化妝品最後掃貨，超市買海苔禮盒最划算。</div>
     <div class="badge purple">最後掃貨</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=홍대+쇼핑거리" target="_blank">📍 地圖</a>
     </div>
   </div>
   <div class="spot-card shop">
-    <div class="spot-name">🥬 望遠市場</div>
-    <div class="spot-desc">步行10分鐘，買零食、伴手禮，比觀光區便宜很多，早市7點就開。</div>
+    <div class="spot-name">🥬 備選：望遠市場</div>
+    <div class="spot-desc">步行10分鐘，零食伴手禮比觀光區便宜很多。</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=망원시장" target="_blank">📍 地圖</a>
     </div>
   </div>
 
-  <div class="block-label">🍽 早餐推薦</div>
-  <div class="spot-card food">
-    <div class="spot-name">☕ 弘大早午餐咖啡廳</div>
-    <div class="spot-desc">弘大有許多全天早午餐咖啡廳，鬆餅、三明治、韓式粥，輕鬆舒適，最後一頓慢慢吃。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=홍대+브런치카페" target="_blank">📍 地圖</a>
+  <div class="transport">
+    <div class="t-label">飯店 → 仁川機場（班機前3小時出發）</div>
+    <div class="t-row">
+      <span class="t-icon">🚆</span>
+      <span class="t-detail">AREX 直通 홍대입구 → 仁川機場<br>約55分鐘</span>
+      <span class="t-price">₩9,500</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚆</span>
+      <span class="t-detail">AREX 一般（停各站）<br>約70分鐘</span>
+      <span class="t-price">₩4,150</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車（行李多建議콜밴廂型）<br>約60分鐘</span>
+      <span class="t-price">~₩80,000</span>
     </div>
   </div>
 
-  <div class="block-label">✈️ 返回機場</div>
   <div class="spot-card">
-    <div class="spot-name">✈️ 前往仁川機場</div>
-    <div class="spot-desc">弘大入口站搭 AREX 直達仁川，約55分鐘。班機前3小時出發，有7人份行李建議提早。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Complace+D+Mapo-gu+Seoul&destination=Incheon+International+Airport&travelmode=transit" target="_blank">路線規劃</a>
-    </div>
+    <div class="spot-name">✈️ 仁川機場 — 返程</div>
+    <div class="spot-desc">記得在機場完成退稅（單店滿₩30,000 可退），出關前辦理。</div>
   </div>
 </div>
 
 <div class="tip-card">
   <div class="tip-title">📌 必知事項</div>
-  <div class="tip-item">· T-money卡：機場或便利商店購買，地鐵公車通用</div>
-  <div class="tip-item">· 計程車：Kakao T app 叫車，可選英文司機</div>
-  <div class="tip-item">· 外送：Baemin（배달의민족）app 漢江叫炸雞</div>
+  <div class="tip-item">· T-money卡：機場或便利商店購買，地鐵公車通用，預先存₩50,000</div>
+  <div class="tip-item">· 計程車：Kakao T app 叫車，深夜加價約20%</div>
+  <div class="tip-item">· 外送：Baemin（배달의민족）漢江叫炸雞必裝</div>
+  <div class="tip-item">· 地鐵：T-money 刷卡比現金便宜約₩150/次</div>
   <div class="tip-item">· 緊急電話：警察 112 · 救護 119</div>
   <div class="tip-item">· 7月天氣：28–33°C 潮濕，帶薄外套備冷氣房</div>
-  <div class="tip-item">· 退稅：單店滿₩30,000 可機場退稅</div>
+  <div class="tip-item">· 退稅：機場出關前辦理，單店滿₩30,000</div>
 </div>
 
 <script>
