@@ -100,9 +100,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <div class="tabs">
   <div class="tab active" onclick="switchDay(0)">7/11 抵達</div>
-  <div class="tab" onclick="switchDay(1)">7/12 樂天</div>
-  <div class="tab" onclick="switchDay(2)">7/13 漢江</div>
-  <div class="tab" onclick="switchDay(3)">7/14 文化</div>
+  <div class="tab" onclick="switchDay(1)">7/12 文化</div>
+  <div class="tab" onclick="switchDay(2)">7/13 樂天</div>
+  <div class="tab" onclick="switchDay(3)">7/14 漢江</div>
   <div class="tab" onclick="switchDay(4)">7/15 返程</div>
 </div>
 
@@ -215,11 +215,139 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <!-- DAY 2 -->
 <div class="day-panel" id="d1">
-  <div class="day-header">第二天 · 7月12日（日）樂天世界</div>
+  <div class="day-header">第二天 · 7月12日（日）文化＆購物</div>
+
+  <div class="spot-card" style="border-left:3px solid #1976d2">
+    <div class="spot-name">📌 為什麼今天安排文化行程？</div>
+    <div class="spot-desc">景福宮每週二休館，7/14（二）無法入場，提前到今天。<br>另外仁寺洞每週日封街辦活動、街頭表演最多，週日去最值得！</div>
+  </div>
 
   <div class="spot-card">
     <div class="spot-name">🏨 飯店出發</div>
-    <div class="spot-time">🕘 建議 09:00 出發</div>
+    <div class="spot-time">🕗 08:30 出發（避開人潮）</div>
+  </div>
+
+  <div class="transport">
+    <div class="t-label">飯店 → 景福宮</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 2 홍대입구 → 을지로3가 → Line 3 → 경복궁駅<br>約30分鐘</span>
+      <span class="t-price">₩1,400</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約20分鐘</span>
+      <span class="t-price">~₩14,000</span>
+    </div>
+  </div>
+
+  <div class="spot-card">
+    <div class="spot-name">🏯 景福宮</div>
+    <div class="spot-desc">穿韓服免費入場。9點前到避開熱氣與人潮，宮門前換裝拍照。</div>
+    <div class="spot-time">🕘 09:00 – 11:30</div>
+    <div class="badge blue">文化體驗</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Gyeongbokgung+Palace+Seoul" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="t-walk">🚶 步行15分鐘 → 北村韓屋村 or 仁寺洞</div>
+
+  <div class="spot-card alt">
+    <div class="spot-name">🏘️ 備選：北村韓屋村</div>
+    <div class="spot-desc">景福宮步行可達，傳統韓屋巷弄，穿韓服在裡面拍照超美。</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Bukchon+Hanok+Village+Seoul" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="spot-card food">
+    <div class="spot-name">🍜 午餐：仁寺洞傳統料理</div>
+    <div class="spot-desc">推薦삼청동 수제비（手打麵）或傳統定食，份量足、有韓味。</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=인사동+한식당" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="spot-card shop">
+    <div class="spot-name">🎎 仁寺洞</div>
+    <div class="spot-desc">傳統文化街，韓紙工藝品、傳統糖果、韓服玩偶。<br>⭐ 週日封街辦活動，街頭表演最多，今天來最熱鬧！</div>
+    <div class="badge purple">週日封街特別熱鬧</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Insadong+Seoul" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="transport">
+    <div class="t-label">仁寺洞 → 明洞</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 3 안국 → 동대입구 → Line 4 → 명동駅<br>約15分鐘</span>
+      <span class="t-price">₩1,400</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約10分鐘</span>
+      <span class="t-price">~₩7,000</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚶</span>
+      <span class="t-detail">步行約20分鐘（天氣好可走）</span>
+      <span class="t-price">免費</span>
+    </div>
+  </div>
+
+  <div class="spot-card shop">
+    <div class="spot-name">🛍️ 明洞</div>
+    <div class="spot-desc">化妝品、服飾、街頭小吃。雞蛋糕、螃蟹爪小朋友超愛，藥妝店掃貨最方便。</div>
+    <div class="badge purple">購物推薦</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Seoul" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="spot-card food">
+    <div class="spot-name">🍜 晚餐：明洞餃子（명동교자）</div>
+    <div class="spot-desc">明洞最知名老店，刀削麵、餃子平價好吃，排隊但翻桌快，小朋友很愛。</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=명동교자" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+  <div class="spot-card food">
+    <div class="spot-name">🥘 晚餐備選：部隊鍋（부대찌개）</div>
+    <div class="spot-desc">香腸、泡麵、起司一鍋煮，小朋友超愛，明洞附近多家。</div>
+    <div class="nav-row">
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=명동+부대찌개" target="_blank">📍 地圖</a>
+    </div>
+  </div>
+
+  <div class="transport">
+    <div class="t-label">明洞 → 飯店</div>
+    <div class="t-row">
+      <span class="t-icon">🚇</span>
+      <span class="t-detail">Line 4 명동 → 동대문역사문화공원 → Line 2 → 홍대입구<br>約30分鐘</span>
+      <span class="t-price">₩1,500</span>
+    </div>
+    <div class="t-row">
+      <span class="t-icon">🚕</span>
+      <span class="t-detail">計程車 約20分鐘</span>
+      <span class="t-price">~₩18,000</span>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 3 -->
+<div class="day-panel" id="d2">
+  <div class="day-header">第三天 · 7月13日（一）樂天世界</div>
+
+  <div class="spot-card" style="border-left:3px solid #1976d2">
+    <div class="spot-name">📌 為什麼今天安排樂天世界？</div>
+    <div class="spot-desc">首爾兒童大公園每週一休館，7/13（一）無法入場，改去樂天世界。<br>另外樂天世界平日人潮比週末少很多，玩起來更舒服！</div>
+  </div>
+
+  <div class="spot-card">
+    <div class="spot-name">🏨 飯店出發</div>
+    <div class="spot-time">🕘 09:00 出發</div>
   </div>
 
   <div class="transport">
@@ -305,16 +433,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
-<!-- DAY 3 -->
-<div class="day-panel" id="d2">
-  <div class="day-header">第三天 · 7月13日（一）漢江＆市場</div>
+<!-- DAY 4 -->
+<div class="day-panel" id="d3">
+  <div class="day-header">第四天 · 7月14日（二）兒童公園＆漢江</div>
+
+  <div class="spot-card" style="border-left:3px solid #1976d2">
+    <div class="spot-name">📌 為什麼今天安排兒童大公園？</div>
+    <div class="spot-desc">首爾兒童大公園每週一休館、景福宮每週二休館，兩者都無法同天安排，今天（二）避開景福宮，改來兒童大公園＋漢江輕鬆一天。</div>
+  </div>
 
   <div class="spot-card">
     <div class="spot-name">🏨 飯店出發</div>
     <div class="spot-time">🕘 09:30 出發</div>
   </div>
-
-  <div class="block-label">上午（選一）</div>
 
   <div class="transport">
     <div class="t-label">飯店 → 首爾兒童大公園</div>
@@ -332,7 +463,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
   <div class="spot-card">
     <div class="spot-name">🌳 首爾兒童大公園</div>
-    <div class="spot-desc">免費動物園＋遊樂設施，上午涼爽時最適合，避開下午酷熱。</div>
+    <div class="spot-desc">免費動物園＋遊樂設施，看動物、玩設備。上午涼爽時最適合，避開下午酷熱。</div>
     <div class="spot-time">🕙 10:00 – 13:00</div>
     <div class="badge">親子首選</div>
     <div class="nav-row">
@@ -344,7 +475,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="t-label">兒童大公園 → 望遠漢江公園</div>
     <div class="t-row">
       <span class="t-icon">🚇</span>
-      <span class="t-detail">Line 2 어린이대공원 → 홍대입구，步行15분至漢江<br>約35分鐘</span>
+      <span class="t-detail">Line 2 어린이대공원 → 홍대입구，步行15分至漢江<br>約35分鐘</span>
       <span class="t-price">₩1,500</span>
     </div>
     <div class="t-row">
@@ -355,14 +486,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 
   <div class="spot-card alt">
-    <div class="spot-name">🛍️ 備選上午：望遠市場</div>
-    <div class="spot-desc">不想遠出，步行10分鐘到傳統市場，零食、小吃、生活雜貨，體驗道地韓式生活。</div>
-    <div class="spot-time">🕘 09:30 – 12:00</div>
+    <div class="spot-name">🛍️ 備選：午後望遠市場</div>
+    <div class="spot-desc">飯店步行10分鐘，傳統市場，零食、小吃、生活雜貨，體驗道地韓式生活。</div>
     <div class="badge purple">備選 · 購物</div>
     <div class="nav-row">
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=망원시장" target="_blank">📍 地圖</a>
     </div>
   </div>
+
   <div class="spot-card food">
     <div class="spot-name">🥘 午餐：望遠市場街頭小吃</div>
     <div class="spot-desc">麻藥飯糰、血腸、煎餅、炒年糕，便宜又好吃，小朋友最愛掃攤。</div>
@@ -397,124 +528,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=합정+카페거리" target="_blank">📍 地圖</a>
     </div>
   </div>
-</div>
-
-<!-- DAY 4 -->
-<div class="day-panel" id="d3">
-  <div class="day-header">第四天 · 7月14日（二）文化＆購物</div>
-
-  <div class="spot-card">
-    <div class="spot-name">🏨 飯店出發</div>
-    <div class="spot-time">🕗 08:30 出發（避開景福宮人潮）</div>
-  </div>
-
-  <div class="transport">
-    <div class="t-label">飯店 → 景福宮</div>
-    <div class="t-row">
-      <span class="t-icon">🚇</span>
-      <span class="t-detail">Line 2 홍대입구 → 을지로3가 → Line 3 → 경복궁駅<br>約30分鐘</span>
-      <span class="t-price">₩1,400</span>
-    </div>
-    <div class="t-row">
-      <span class="t-icon">🚕</span>
-      <span class="t-detail">計程車 約20分鐘</span>
-      <span class="t-price">~₩14,000</span>
-    </div>
-  </div>
-
-  <div class="spot-card">
-    <div class="spot-name">🏯 景福宮</div>
-    <div class="spot-desc">穿韓服免費入場。9點前到避開熱氣與人潮，宮門前換裝拍照。</div>
-    <div class="spot-time">🕘 09:00 – 11:30</div>
-    <div class="badge blue">文化體驗</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Gyeongbokgung+Palace+Seoul" target="_blank">📍 地圖</a>
-    </div>
-  </div>
-
-  <div class="t-walk">🚶 步行15分鐘 → 北村韓屋村 or 仁寺洞</div>
-
-  <div class="spot-card alt">
-    <div class="spot-name">🏘️ 備選：北村韓屋村</div>
-    <div class="spot-desc">景福宮步行可達，傳統韓屋巷弄，穿韓服在裡面拍照超美。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Bukchon+Hanok+Village+Seoul" target="_blank">📍 地圖</a>
-    </div>
-  </div>
 
   <div class="spot-card food">
-    <div class="spot-name">🍜 午餐：仁寺洞傳統料理</div>
-    <div class="spot-desc">推薦삼청동 수제비（手打麵）或傳統定食，份量足、有韓味，附近餐廳選擇多。</div>
+    <div class="spot-name">🥩 晚餐：합정 맛집（合井美食）</div>
+    <div class="spot-desc">飯店附近합정역周邊餐廳，韓式家常、豆腐鍋、部隊鍋都有，輕鬆步行回飯店。</div>
     <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=인사동+한식당" target="_blank">📍 地圖</a>
+      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=합정역+맛집" target="_blank">📍 地圖</a>
     </div>
   </div>
 
-  <div class="spot-card shop">
-    <div class="spot-name">🎎 仁寺洞</div>
-    <div class="spot-desc">傳統文化街，韓紙工藝品、傳統糖果、韓服玩偶，最適合買有特色的伴手禮。</div>
-    <div class="badge purple">伴手禮首選</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Insadong+Seoul" target="_blank">📍 地圖</a>
-    </div>
-  </div>
-
-  <div class="transport">
-    <div class="t-label">仁寺洞 → 明洞</div>
-    <div class="t-row">
-      <span class="t-icon">🚇</span>
-      <span class="t-detail">Line 3 안국 → 동대입구 → Line 4 → 명동駅<br>約15分鐘</span>
-      <span class="t-price">₩1,400</span>
-    </div>
-    <div class="t-row">
-      <span class="t-icon">🚕</span>
-      <span class="t-detail">計程車 約10分鐘</span>
-      <span class="t-price">~₩7,000</span>
-    </div>
-    <div class="t-row">
-      <span class="t-icon">🚶</span>
-      <span class="t-detail">步行約20分鐘（天氣好可走）</span>
-      <span class="t-price">免費</span>
-    </div>
-  </div>
-
-  <div class="spot-card shop">
-    <div class="spot-name">🛍️ 明洞</div>
-    <div class="spot-desc">化妝品、服飾、街頭小吃。雞蛋糕、螃蟹爪小朋友超愛，藥妝店掃貨最方便。</div>
-    <div class="badge purple">購物推薦</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Seoul" target="_blank">📍 地圖</a>
-    </div>
-  </div>
-
-  <div class="spot-card food">
-    <div class="spot-name">🍜 晚餐：明洞餃子（명동교자）</div>
-    <div class="spot-desc">明洞最知名老店，刀削麵、餃子平價好吃，排隊但翻桌快，小朋友很愛。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=명동교자" target="_blank">📍 地圖</a>
-    </div>
-  </div>
-  <div class="spot-card food">
-    <div class="spot-name">🥘 晚餐備選：部隊鍋（부대찌개）</div>
-    <div class="spot-desc">香腸、泡麵、起司一鍋煮，小朋友超愛，明洞附近多家。</div>
-    <div class="nav-row">
-      <a class="nav-btn" href="https://www.google.com/maps/search/?api=1&query=명동+부대찌개" target="_blank">📍 地圖</a>
-    </div>
-  </div>
-
-  <div class="transport">
-    <div class="t-label">明洞 → 飯店</div>
-    <div class="t-row">
-      <span class="t-icon">🚇</span>
-      <span class="t-detail">Line 4 명동 → 동대문역사문화공원 → Line 2 → 홍대입구<br>約30分鐘</span>
-      <span class="t-price">₩1,500</span>
-    </div>
-    <div class="t-row">
-      <span class="t-icon">🚕</span>
-      <span class="t-detail">計程車 約20分鐘</span>
-      <span class="t-price">~₩18,000</span>
-    </div>
-  </div>
+  <div class="t-walk">🚶 步行10分鐘 → 飯店</div>
 </div>
 
 <!-- DAY 5 -->
